@@ -1,0 +1,14 @@
+node {
+    stage ('Checkout') {
+        checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '$GERRIT_REFSPEC']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'jenkins-master', refspec: '+refs/changes/*:refs/changes/*', url: 'ssh://jenkins@codeurjc-forge-gerrit:29418/awesome-project']]]
+    }
+    stage("Build") {
+        docker.image('maven').inside('-v $HOME/.m2:/root/.m2 '+
+            '-v /var/run/docker.sock:/var/run/docker.sock') {
+            sh 'mvn -Dtest=BoardTestParam*Test.java install compile package'
+            sh 'mvn -Dtest=TicTacToeGameTest.java test'
+        }
+        step([$class: 'JUnitResultArchiver',
+            testResults: '**/target/surefire-reports/TEST-*.xml'])
+    }
+}

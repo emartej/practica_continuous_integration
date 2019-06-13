@@ -1,0 +1,11 @@
+/data/src/test/java/es/codeurjc/ais/tictactoe/WebAppContainerDockerSimpleTest.java
+/data/src/test/java/es/codeurjc/ais/tictactoe/BoardTestParamWhenWinnerTest.java
+/data/src/test/java/es/codeurjc/ais/tictactoe/WebAppContainerDockerTest.java
+/data/src/test/java/es/codeurjc/ais/tictactoe/WebAppTest.java
+/data/src/test/java/es/codeurjc/ais/tictactoe/BoardTestParamsWhenNoWinnerTest.java
+/data/src/test/java/es/codeurjc/ais/tictactoe/TicTacToeGameTest.java
+/data/src/test/java/es/codeurjc/ais/tictactoe/WebAppContainerTest.java
+/data/src/test/java/es/codeurjc/ais/tictactoe/BoardTestParamsWhenNoWinner.java
+/data/src/test/java/es/codeurjc/ais/tictactoe/BoardTestParamWhenWinner.java
+/data/src/test/java/es/codeurjc/ais/tictactoe/BoardTest.java
+/data/src/test/java/es/codeurjc/ais/tictactoe/WebAppContainerDockerImageTest.java

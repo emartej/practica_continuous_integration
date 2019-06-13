@@ -1,0 +1,49 @@
+-------------------------------------------------------------------------------
+Test set: es.codeurjc.ais.tictactoe.WebAppContainerDockerTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 212.398 s <<< FAILURE! - in es.codeurjc.ais.tictactoe.WebAppContainerDockerTest
+test[0: J2 wins! J1 looses.](es.codeurjc.ais.tictactoe.WebAppContainerDockerTest)  Time elapsed: 66.871 s  <<< ERROR!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"id","selector":"cell-6"}
+  (Session info: chrome=70.0.3538.77)
+  (Driver info: chromedriver=2.43.600233 (523efee95e3d68b8719b3a1c83051aa63aa6b10d),platform=Linux 4.18.0-17-generic x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:19:58.91Z'
+System info: host: '5cd3ad01aea8', ip: '172.17.0.4', os.name: 'Linux', os.arch: 'amd64', os.version: '4.18.0-17-generic', java.version: '11.0.2'
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.43.600233 (523efee95e3d68..., userDataDir: /tmp/.org.chromium.Chromium...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:36533}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 70.0.3538.77, webStorageEnabled: true, webdriver.remote.sessionid: 0848bf7f137f6950dcb403e22ee...}
+Session ID: 0848bf7f137f6950dcb403e22ee075e9
+*** Element info: {Using=id, value=cell-6}
+	at es.codeurjc.ais.tictactoe.WebAppContainerDockerTest.test(WebAppContainerDockerTest.java:124)
+
+test[1: J1 wins! J2 looses.](es.codeurjc.ais.tictactoe.WebAppContainerDockerTest)  Time elapsed: 69.373 s  <<< ERROR!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"id","selector":"cell-3"}
+  (Session info: chrome=70.0.3538.77)
+  (Driver info: chromedriver=2.43.600233 (523efee95e3d68b8719b3a1c83051aa63aa6b10d),platform=Linux 4.18.0-17-generic x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:19:58.91Z'
+System info: host: '5cd3ad01aea8', ip: '172.17.0.4', os.name: 'Linux', os.arch: 'amd64', os.version: '4.18.0-17-generic', java.version: '11.0.2'
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.43.600233 (523efee95e3d68..., userDataDir: /tmp/.org.chromium.Chromium...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:44229}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 70.0.3538.77, webStorageEnabled: true, webdriver.remote.sessionid: f37eedd53727b003240fc5cb03d...}
+Session ID: f37eedd53727b003240fc5cb03d5220e
+*** Element info: {Using=id, value=cell-3}
+	at es.codeurjc.ais.tictactoe.WebAppContainerDockerTest.test(WebAppContainerDockerTest.java:124)
+
+test[2: Draw!](es.codeurjc.ais.tictactoe.WebAppContainerDockerTest)  Time elapsed: 61.4 s  <<< ERROR!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"id","selector":"cell-4"}
+  (Session info: chrome=70.0.3538.77)
+  (Driver info: chromedriver=2.43.600233 (523efee95e3d68b8719b3a1c83051aa63aa6b10d),platform=Linux 4.18.0-17-generic x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:19:58.91Z'
+System info: host: '5cd3ad01aea8', ip: '172.17.0.4', os.name: 'Linux', os.arch: 'amd64', os.version: '4.18.0-17-generic', java.version: '11.0.2'
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.43.600233 (523efee95e3d68..., userDataDir: /tmp/.org.chromium.Chromium...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:34839}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 70.0.3538.77, webStorageEnabled: true, webdriver.remote.sessionid: db99f898e46b0bf87f751d54b62...}
+Session ID: db99f898e46b0bf87f751d54b6205502
+*** Element info: {Using=id, value=cell-4}
+	at es.codeurjc.ais.tictactoe.WebAppContainerDockerTest.test(WebAppContainerDockerTest.java:124)
+

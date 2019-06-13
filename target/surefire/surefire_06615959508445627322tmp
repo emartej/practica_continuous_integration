@@ -1,0 +1,6 @@
+#surefire_0
+#Thu May 30 14:25:10 UTC 2019
+basedir=/data
+test=WebAppContainerDockerSimpleTest.java
+user.dir=/data
+localRepository=/root/.m2/repository

@@ -1,0 +1,72 @@
+TARGET_FOLDER=/usr/share/apache
+PROJECT_NAME=$(echo $GIT_URL | cut -d"/" -f4)
+
+# Step 0: Include some traces and clean-up actions before starting
+
+sudo rm -rf ./target/*.flv
+sudo rm -rf ./target/*.jar*
+
+
+# Step 2: Modify pom.xml removing SNAPSHOT
+
+./update-pom-removing-snapshot.sh
+
+
+# Step 3a: Compilation and UT
+
+docker run --name CompilationDocker --rm --volumes-from codeurjc-forge-jenkins -w ${WORKSPACE} maven mvn -Dtest=BoardTestParam*Test.java install compile package
+docker run --name UTDocker --rm --volumes-from codeurjc-forge-jenkins -w ${WORKSPACE} maven mvn -Dtest=TicTacToeGameTest.java test
+
+mkdir -p $TARGET_FOLDER/$PROJECT_NAME
+cp ./target/*.jar $TARGET_FOLDER/$PROJECT_NAME
+
+
+# Step 3b: System test with TestContainers
+
+docker run --name STDocker --rm --volumes-from codeurjc-forge-jenkins -v /var/run/docker.sock:/var/run/docker.sock -w ${WORKSPACE} maven mvn  -Dtest=WebAppContainerTest.java test
+
+
+# Step 4: Docker image creation and publishing with the tag from pom.xml
+
+./build-image-release.sh
+
+IM_NAME=$(cat ./container-name.txt)
+
+cat ./dockerhub-password.txt | docker login --username emartej --password-stdin
+docker tag emartej/tictactoe:latest emartej/tictactoe:$IM_NAME
+docker push emartej/tictactoe:$IM_NAME
+
+
+# Step 5: Docker image creation and publishing with the tag latest
+
+docker tag emartej/tictactoe:latest emartej/tictactoe:latest
+docker push emartej/tictactoe:$IM_NAME
+
+
+# Step 6: Create tag in git repository
+
+git tag $IM_NAME
+git push origin $IM_NAME
+
+
+# Step 7: Modify pom.xml adding new dev version and push pom.xml
+
+./update-pom-adding-new-dev-version.sh $IM_NAME $next_dev_version
+
+git status .
+
+git config user.email "jenkins@domain.local"
+
+git config --list
+
+gitdir=$(git rev-parse --git-dir); scp -p -P 29418 jenkins@codeurjc-forge-gerrit:hooks/commit-msg ${gitdir}/hooks/
+
+
+git add ./pom.xml
+
+git status .
+git commit -m "Modifying pom.xml with new dev version"
+
+git status .
+
+git push origin HEAD:refs/for/master

@@ -1,0 +1,11 @@
+es/codeurjc/ais/tictactoe/WebAppContainerDockerSimpleTest.class
+es/codeurjc/ais/tictactoe/WebAppContainerDockerTest.class
+es/codeurjc/ais/tictactoe/TicTacToeGameTest.class
+es/codeurjc/ais/tictactoe/BoardTestParamsWhenNoWinner.class
+es/codeurjc/ais/tictactoe/BoardTestParamsWhenNoWinnerTest.class
+es/codeurjc/ais/tictactoe/BoardTest.class
+es/codeurjc/ais/tictactoe/BoardTestParamWhenWinnerTest.class
+es/codeurjc/ais/tictactoe/WebAppContainerTest.class
+es/codeurjc/ais/tictactoe/BoardTestParamWhenWinner.class
+es/codeurjc/ais/tictactoe/WebAppContainerDockerImageTest.class
+es/codeurjc/ais/tictactoe/WebAppTest.class

@@ -1,0 +1,6 @@
+#surefire_0
+#Tue Jun 04 09:36:07 UTC 2019
+basedir=/data
+test=WKKWebAppContainerDockerSimpleTest2.java
+user.dir=/data
+localRepository=/root/.m2/repository

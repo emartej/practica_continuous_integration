@@ -1,0 +1,6 @@
+#surefire_0
+#Wed Jun 05 14:51:08 UTC 2019
+basedir=/data
+test=WebAppTest.java
+user.dir=/data
+localRepository=/root/.m2/repository

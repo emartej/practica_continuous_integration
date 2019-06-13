@@ -1,0 +1,36 @@
+TARGET_FOLDER=/usr/share/apache
+PROJECT_NAME=$(echo $GIT_URL | cut -d"/" -f4)
+
+# Step 0: Include some traces and clean-up actions before starting
+
+sudo rm -rf ./target/*.flv
+sudo rm -rf ./target/*.jar*
+
+
+# Step 1a: Compilation and UT
+
+docker run --name CompilationDocker --rm --volumes-from codeurjc-forge-jenkins -w ${WORKSPACE} maven mvn -Dtest=BoardTestParam*Test.java install compile package
+docker run --name UTDocker --rm --volumes-from codeurjc-forge-jenkins -w ${WORKSPACE} maven mvn -Dtest=TicTacToeGameTest.java test
+
+mkdir -p $TARGET_FOLDER/$PROJECT_NAME
+cp ./target/*.jar $TARGET_FOLDER/$PROJECT_NAME
+
+
+# Step 1b: System test with TestContainers
+
+docker run --name STDocker --rm --volumes-from codeurjc-forge-jenkins -v /var/run/docker.sock:/var/run/docker.sock -w ${WORKSPACE} maven mvn  -Dtest=WebAppContainerTest.java test
+
+
+# Step 2: Sonar execution
+
+cat /sonar-scanner-3.3.0.1492-linux/conf/sonar-scanner.properties
+sh "/sonar-scanner-3.3.0.1492-linux/bin/sonar-scanner"
+
+
+# Step 4: Docker image creation and publishing
+
+./build-image.sh
+cat ./dockerhub-password.txt | docker login --username emartej --password-stdin
+docker tag emartej/tictactoe:latest emartej/tictactoe:dev
+docker push emartej/tictactoe:dev
+
